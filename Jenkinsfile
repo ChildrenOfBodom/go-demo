@@ -8,12 +8,12 @@ pipeline {
   agent {
     //we need Docker Compose in many of the sh steps
     //we want to use Docker-in-Docker (DIND) to isolate Docker Compose images, containers, networks from other running jobs
-    label "dind-compose"
+    label "master"
   }
   environment {
     //these will be used throughout the Pipeline
-    DOCKER_HUB_USER = 'beedemo'
-    DOCKER_CREDENTIAL_ID = 'docker-hub-beedemo'
+    DOCKER_HUB_USER = 'mineallmine'
+    DOCKER_CREDENTIAL_ID = 'dockerhub'
     //will shorten sh step for frist two stages, but require stage level environment variables to override
     COMPOSE_FILE = 'docker-compose-test.yml'
   }
